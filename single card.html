@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editor Portfolio</title>
+    <style>
+        :root {
+            --primary: #ff4d4d;
+            --secondary: #1a1a2e;
+            --light: #f8f8f8;
+            --dark: #16213e;
+            --accent: #00b4d8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+        }
+        
+        
+        
+        /* Projects Section */
+        .projects {
+            padding: 5rem 5%;
+            background-color: var(--secondary);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--dark);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-thumbnail {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+        
+        .project-thumbnail video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-card.active-video .project-thumbnail img {
+            opacity: 0;
+        }
+        
+        .project-card.active-video .project-thumbnail video {
+            opacity: 1;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background-color: rgba(0, 180, 216, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+   
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <img src="https://via.placeholder.com/400x225/333/fff?text=Project+Thumbnail" alt="Project 1">
+                    <video muted loop>
+                        <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <a href="#" class="cta-button">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Corporate Brand Video</h3>
+                    <p>A sleek promotional video for a tech startup's product launch.</p>
+                    <div class="project-tags">
+                        <span class="tag">Premiere Pro</span>
+                        <span class="tag">After Effects</span>
+                        <span class="tag">Color Grading</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <img src="https://via.placeholder.com/400x225/555/fff?text=Project+Thumbnail" alt="Project 2">
+                    <video muted loop>
+                        <source src="https://samplelib.com/lib/preview/mp4/sample-10s.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <a href="#" class="cta-button">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Music Video</h3>
+                    <p>Energetic music video for an up-and-coming indie band.</p>
+                    <div class="project-tags">
+                        <span class="tag">DaVinci Resolve</span>
+                        <span class="tag">Motion Graphics</span>
+                        <span class="tag">Visual Effects</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <img src="https://via.placeholder.com/400x225/777/fff?text=Project+Thumbnail" alt="Project 3">
+                    <video muted loop>
+                        <source src="https://samplelib.com/lib/preview/mp4/sample-15s.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <a href="#" class="cta-button">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Documentary Short</h3>
+                    <p>Emotional short documentary about urban wildlife adaptation.</p>
+                    <div class="project-tags">
+                        <span class="tag">Final Cut Pro</span>
+                        <span class="tag">Sound Design</span>
+                        <span class="tag">Storytelling</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <img src="https://via.placeholder.com/400x225/999/fff?text=Project+Thumbnail" alt="Project 4">
+                    <video muted loop>
+                        <source src="https://samplelib.com/lib/preview/mp4/sample-20s.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-overlay">
+                        <a href="#" class="cta-button">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Social Media Ads</h3>
+                    <p>Series of engaging 15-second ads for Instagram and TikTok.</p>
+                    <div class="project-tags">
+                        <span class="tag">Premiere Pro</span>
+                        <span class="tag">Vertical Video</span>
+                        <span class="tag">Captioning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+  
+    
+    <script>
+      
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Video thumbnail functionality
+        document.querySelectorAll('.project-thumbnail').forEach(thumbnail => {
+            // Click on thumbnail to play video
+            thumbnail.addEventListener('click', function(e) {
+                // Don't trigger if clicking on the "View Project" button
+                if (e.target.classList.contains('cta-button')) return;
+                
+                const projectCard = this.closest('.project-card');
+                const video = this.querySelector('video');
+                
+                // Toggle active state
+                projectCard.classList.toggle('active-video');
+                
+                // Play or pause video based on state
+                if (projectCard.classList.contains('active-video')) {
+                    video.play();
+                } else {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+            
+            // Pause video when mouse leaves (optional)
+            thumbnail.addEventListener('mouseleave', function() {
+                const video = this.querySelector('video');
+                if (!this.closest('.project-card').classList.contains('active-video')) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+        });
+        
+        // Animate elements on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            // Example: Parallax effect for hero content
+            if (document.querySelector('.hero-content')) {
+                document.querySelector('.hero-content').style.transform = `translateY(${scrollPosition * 0.2}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
